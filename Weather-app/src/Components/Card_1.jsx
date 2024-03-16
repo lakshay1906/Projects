@@ -11,7 +11,7 @@ function Card() {
 
   async function weather_app(city) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4be9a29edd8195df84120d94059fc8ff&units=metric`;
-    console.log(d.getElementsByClassName("dis-none")[1].style.display);
+    // console.log(d.getElementsByClassName("dis-none")[1].style.display);
 
     try {
       let response = await fetch(url);
@@ -88,7 +88,7 @@ function Card() {
   function display_none() {
     d.getElementsByClassName("dis-none")[0].style.display = "none";
     d.getElementsByClassName("dis-none")[1].style.display = "none";
-    console.log(d.getElementsByClassName("dis-none")[1]);
+    // console.log(d.getElementsByClassName("dis-none")[1]);
   }
   return (
     <>

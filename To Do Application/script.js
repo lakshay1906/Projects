@@ -2,6 +2,7 @@ let d = document;
 let btn = d.getElementById("btn");
 let input = d.querySelector("input");
 let container = d.getElementsByClassName("list-container")[0];
+const array = [];
 
 input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
@@ -26,6 +27,7 @@ function createTask() {
   } else {
     li = d.createElement("li");
     li.innerText = input.value;
+    array.push(input.value);
     li.style.listStyle = "circle";
     container.appendChild(li);
     image = d.createElement("img");
@@ -39,8 +41,9 @@ function createTask() {
     li.appendChild(span);
     li.classList.add("task");
     delete_1 = d.getElementsByClassName("delete");
-    console.log(delete_1);
     temp++;
+    localStorage.setItem("data", array);
+    console.log(array);
   }
 }
 
@@ -59,17 +62,23 @@ container.addEventListener(
   (e) => {
     if (e.target.classList.value === "delete") {
       e.target.parentElement.remove();
+      array.pop();
+      console.log(array);
     } else if (
       e.target.classList.value === "check-img" ||
       e.target.tagName === "LI"
     ) {
       if (checked_val) {
-        image.setAttribute("src", "/React-Programs/javascript/checked.png");
-        li.style.textDecoration = "line-through";
+        // image.setAttribute("src", "/React-Programs/javascript/checked.png");
+        e.target.parentElement.childNodes[1].src =
+          "http://127.0.0.1:5500/React-Programs/javascript/checked.png";
+        e.target.parentElement.style.textDecoration = "line-through";
         checked_val = false;
       } else {
-        image.setAttribute("src", "/React-Programs/javascript/unchecked_1.jpg");
-        li.style.textDecoration = "none";
+        // image.setAttribute("src", "/React-Programs/javascript/unchecked_1.jpg");
+        e.target.parentElement.childNodes[1].src =
+          "http://127.0.0.1:5500/React-Programs/javascript/unchecked_1.jpg";
+        e.target.parentElement.style.textDecoration = "none";
         checked_val = true;
       }
     }
