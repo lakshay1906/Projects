@@ -7,11 +7,14 @@ let win = localStorage.getItem("win");
 let lose = localStorage.getItem("lose");
 let tie = localStorage.getItem("tie");
 let random;
+
 function numb() {
   random = Math.floor(Math.random() * 3);
   return arr[random];
 }
+
 let arr = ["Stone", "Paper", "Scissor"];
+
 function Stone_func() {
   let res = numb();
   if (res === "Stone") {
@@ -40,6 +43,7 @@ function Stone_func() {
   tie_res.innerHTML = localStorage.getItem("tie");
   lose_res.innerHTML = localStorage.getItem("lose");
 }
+
 function Paper_func() {
   let res = numb();
   if (res === "Stone") {
@@ -69,6 +73,7 @@ function Paper_func() {
   lose_res.innerHTML = localStorage.getItem("lose");
   console.log(localStorage.getItem("win"));
 }
+
 function Scissor_func() {
   let res = numb();
   if (res === "Stone") {
@@ -98,7 +103,9 @@ function Scissor_func() {
   lose_res.innerHTML = localStorage.getItem("lose");
   console.log(localStorage.getItem("win"));
 }
+
 let reset = document.getElementById("reset");
+
 reset.addEventListener("click", () => {
   win = 0;
   lose = 0;
@@ -109,8 +116,12 @@ reset.addEventListener("click", () => {
   tie_res.innerText = "00";
   lose_res.innerText = "00";
 });
+
 result.innerText = localStorage.getItem("result");
 win_res.innerHTML = localStorage.getItem("win");
 tie_res.innerHTML = localStorage.getItem("tie");
 lose_res.innerHTML = localStorage.getItem("lose");
 comp_choice.innerHTML = localStorage.getItem("compChoice");
+win_res.innerText = "00";
+tie_res.innerText = "00";
+lose_res.innerText = "00";
